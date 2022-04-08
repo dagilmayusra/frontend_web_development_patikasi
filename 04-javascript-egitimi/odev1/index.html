@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+            body{
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                background-color: chocolate;
+            }
+            #saatalani{
+                background-color: black;
+                width: 600px;
+                height: 200px;
+           
+            }
+            #tarih{
+                color: cadetblue;
+                font-size: 50px;
+                text-align: center;
+            }
+    
+            #saat{
+                color: darkkhaki;
+                font-size: 50px;
+                text-align: center;
+            }
+          
+        </style>
+    </head>
+    <body>
+     
+            <div id="saatalani">
+                <p id="tarih"></p>
+                <p id="saat"></p>
+            </div>
+
+        
+        <script>
+
+            var isim = prompt("İsminizi giriniz: ");
+            var yazi = document.write("Merhaba " + isim);
+
+            setInterval(dijitalsaat, 1000)
+            function dijitalsaat(){
+
+                var simdi = new Date;
+                var sa = simdi.getHours();
+                var dk = simdi.getMinutes();
+                var sn = simdi.getSeconds();
+                var gn = simdi.getDate();
+                var aylar = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+                var ay = [simdi.getMonth()];
+                var yl = simdi.getFullYear();
+                var gunler = ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+                var gi = gunler[simdi.getDay()];
+
+                sa = (sa<10) ? "0" + sa:sa;
+                dk = (dk<10) ? "0" + dk:dk;
+                sn = (sn<10) ? "0" + sn:sn;
+
+                var zaman= sa + ":" + dk + ":" +sn;
+                var saat= document.getElementById("saat").innerHTML=zaman;
+
+                gn = (gn<10) ? gn:gn;
+                var tarih= gn + "/" + ay + "/" +yl + " " + gi;
+                var tarih2= document.getElementById("tarih").innerHTML=tarih;
+
+            }
+           
+
+        </script>
+    </body>
+</html>
